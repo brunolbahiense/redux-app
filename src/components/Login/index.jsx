@@ -65,7 +65,7 @@ export default function Login() {
               onChange={handleChangeInputValue}
             />
 
-            <label htmlFor="password">Password</label>
+            <label htmlFor="password">Senha</label>
             <input 
             type="password" 
             name="password" 

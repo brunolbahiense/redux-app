@@ -45,7 +45,7 @@ export default function Signup() {
         <div className="signup_container">
           <h1>Cadastre-se</h1>
           <form onSubmit={handleSubmit}>
-              <label htmlFor="name">Nome</label>
+              <label htmlFor="name">Usuário</label>
               <input 
                 name="username"
                 type="text" 
@@ -53,7 +53,7 @@ export default function Signup() {
                 value={user.username}
                 onChange={handleChangeInputValue}
               />
-              <label htmlFor="password">Password</label>
+              <label htmlFor="password">Senha</label>
               <input 
                 name="password" 
                 type="password" 
