@@ -1,7 +1,6 @@
 import './styles.css'
 import { useState, useEffect } from 'react'
 import { getToken } from '../../utils/storage'
-import api from '../../services'
 import DashboarHeader from '../../components/Header/dashboard';
 import AddRegister from '../../components/Modal/AddRegister';
 import EditRegister from '../../components/Modal/EditRegister';
@@ -53,17 +52,6 @@ export default function Dashboard() {
     setMyTasks(tasks)
   }
 
-
-  const deleteTransaction = async (id) => {
-    try {
-      await api.delete(`/transacao/${id}`)
-      window.location.reload();
-    } catch (error) {
-      console.log(error.response.data.mensagem)
-    }
-  }
-
-
   const openPopup = async (e, id) => {
     setPopup(!popup)
     setDeleteId(id)
@@ -106,7 +94,6 @@ export default function Dashboard() {
           </div>
         </div>
       </div>
-
     </div>
   )
 }

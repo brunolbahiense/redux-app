@@ -1,9 +1,6 @@
 import './styles.css'
-import { useState, useEffect } from 'react'
-// import { format } from 'date-fns'
+import { useState } from 'react'
 import { getToken } from '../../utils/storage'
-// import api from '../../services'
-
 
 export default function EditRegister({ closeModal, payloadId }) {
     const token = getToken()
@@ -17,50 +14,9 @@ export default function EditRegister({ closeModal, payloadId }) {
         setPayload({ ...payload, [e.target.name]: e.target.value })
     }
 
-
-
-
-    // const formatDate = (date) => {
-    //     const formated = format(date, 'yyyy-MM-dd')
-    //     return formated
-    // }
-
-    const getObj = async () => {
-        // try {
-        //     const response = await api.get(`/transacao/${payloadId}`)
-        //     setPayload({
-        //         value: response.data[0].valor,
-        //         category: response.data[0].categoria_nome,
-        //         date: formatDate(new Date(response.data[0].data_cadastro), 'yyyy-MM-dd'),
-        //         description: response.data[0].descricao
-        //     })
-
-        // } catch (error) {
-        //     alert(error.response.data.mensagem)
-        // }
-    }
-
-    useEffect(() => {
-        getObj()
-    }, []);
-
-
     const handleSubmit = async (e) => {
         e.preventDefault()
-        // const id = option.findIndex(item => item.descricao === payload.category)
-        // try {
-        //     await api.put(`/transacao/${payloadId}`, {
-        //         descricao: payload.description,
-        //         valor: payload.value,
-        //         data: formatDate(payload.date),
-        //         categoria_id: option[id].id,
-        //         tipo: type
-        //     })
-        //     closeModal()
-        //     window.location.reload()
-        // } catch (error) {
-        //     alert(error.response.data.mensagem)
-        // }
+
     }
 
     return (
