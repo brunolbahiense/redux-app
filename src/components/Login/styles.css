@@ -1,0 +1,59 @@
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(90.23deg, #05EDE3 0.02%, #645FFB 99.63%);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  color: #fff;
+}
+
+
+.hero_div{
+  display: flex;
+  flex-direction: column;
+  margin-right: 90px;
+}
+
+.hero_h1{
+  font-weight: 700;
+  font-size: 52px;
+  line-height: 62px;
+}
+
+.hero_h1 > span{
+  color: #7978D9;
+}
+
+.hero_div > p{
+  font-size: 28px;
+  line-height: 33px;
+  margin-top: 33px;
+}
+.hero_div > button{
+  width: 284px;
+  margin-top: 43px;
+}
+
+
+
+.login_container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 513px;
+  height: 535px;
+  padding: 60px 32px;
+  background-color: #fff;
+  color: #7978D9;
+}
+
+.login_button{
+  margin-bottom: 49px;
+}
+
+.container button:hover{
+  background-color: #4240c5;
+}

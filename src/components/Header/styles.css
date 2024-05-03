@@ -1,0 +1,36 @@
+header{
+  position: fixed;
+  width: 100vw;
+  padding: 46px 105px;
+  top: 0;
+}
+header img{
+  cursor: pointer;
+}
+
+.dashboard_header{
+  display: flex;
+  justify-content: space-between;
+  position: sticky;
+  height: 14vh;
+  padding: 41px 100px;
+}
+
+.dashboard_info{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+}
+
+.dashboard_info > img {
+  cursor: pointer;
+}
+
+.username{
+  font-family: 'Rubik';
+  font-weight: 700;
+  font-size: 14px;
+  margin-right: 16px;
+  color: #fff;
+}
