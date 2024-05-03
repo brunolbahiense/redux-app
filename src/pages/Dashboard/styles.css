@@ -38,6 +38,16 @@
     border-radius: 10px;
     font-weight: 700;
 }
+
+.data_header button{
+    width: 20em;
+}
+
+
+.data_header p{
+    margin-top: 0 !important;
+}
+
 .empty{
     width: 80px;
 }
@@ -126,50 +136,6 @@
     display: flex;
     justify-content: space-between;
 }
-
-/* .total_div{
-    padding-top: 16px;
-    border-top: 1px solid #EAEAEA;
-    margin-top: 19px;
-}
-.total_div > p{
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 17px;
-}
-
-
-
-.deposit{
-    font-weight: 500;
-    font-size: 13px;
-    line-height: 15px;
-    color: #645FFB;
-}
-.withdraw{
-    font-weight: 500;
-    font-size: 13px;
-    line-height: 15px;
-    color: #FA8C10;
-}
-
-.total{
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 17px;
-    color: #3A9FF1;
-}
-
-.entrada{
-    font-weight: 700;
-    color: #7B61FF;
-}
-
-.saida{
-    font-weight: 700;
-    color: #FA8C10;
-} */
-
 .popup{
     position: absolute;
     top: 0;

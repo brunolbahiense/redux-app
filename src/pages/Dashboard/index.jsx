@@ -6,11 +6,16 @@ import DashboarHeader from '../../components/Header/dashboard';
 import AddRegister from '../../components/Modal/AddRegister';
 import EditRegister from '../../components/Modal/EditRegister';
 import Popup from '../../components/Popup';
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { removeTask } from '../../redux/tasks/actions'
 
 export default function Dashboard() {
+  const dispatch = useDispatch()
+  const {tasks} = useSelector(rootReducer => rootReducer.taskReducer)
   const token = getToken()
   useEffect(() => {
-    getTransactions()
+    getMyTasks()
   }, []);
 
   const [modalAdd, setModalAdd] = useState(false)
@@ -20,7 +25,7 @@ export default function Dashboard() {
   const [deleteId, setDeleteId] = useState(null)
 
   const [transactionId, setTransactionId] = useState()
-  const [transactions, setTransactions] = useState([
+  const [MyTasks, setMyTasks] = useState([
    {
     id: 1,
     name: 'fazer o front',
@@ -44,13 +49,8 @@ export default function Dashboard() {
     setTransactionId(id)
   }
 
-  const getTransactions = async () => {
-    try {
-      const response = await api.get('/transacao')
-      setTransactions(response.data)
-    } catch (error) {
-      console.log(error.response.data.mensagem)
-    }
+  const getMyTasks = async () => {
+    setMyTasks(tasks)
   }
 
 
@@ -69,8 +69,9 @@ export default function Dashboard() {
     setDeleteId(id)
   }
 
-  const handleDeleteModal = async () => {
-    deleteTransaction(deleteId)
+  const handleDeleteModal = async (id) => {
+    dispatch( removeTask(id))
+    
   }
 
 
@@ -89,8 +90,8 @@ export default function Dashboard() {
               <button onClick={openModalAdd}>Nova Tarefa</button>
             </div>
             <div></div>
-            {transactions.map(info => (
-              <div className='data' key={info.id}>
+            {tasks.map(info => (
+              <div className='data' key={info.id} id={info.id}>
                 <div className="note">
                   <h1>{info.name}</h1>
                   <p>{info.description}</p>
@@ -98,30 +99,12 @@ export default function Dashboard() {
                 <div className="icons">
                   <img src="/icons/edit.svg" alt="edit button" onClick={() => openModalEditReg(info.id)} />
                   <img src="/icons/bin.svg" alt="delete button" onClick={(e) => openPopup(e, info.id)} />
-                  {popup && info.id === deleteId && <Popup closeModal={closeModal} handleDeleteModal={handleDeleteModal} />}
+                  {popup && info.id === deleteId && <Popup closeModal={closeModal} handleDeleteModal={() => handleDeleteModal(info.id)} />}
                 </div>
               </div>
             ))}
           </div>
         </div>
-        {/* <div className="resume">
-          <div className="resume_data">
-            <p className='resume_title'>Resumo</p>
-            <div>
-              <p>Entradas</p>
-              <p className="deposit">{formatValue(extract.entrada)}</p>
-            </div>
-            <div>
-              <p>Saidas</p>
-              <p className="withdraw">{formatValue(extract.saida)}</p>
-            </div>
-            <div className='total_div'>
-              <p>Saldo</p>
-              <p className="total">{formatValue(extract.entrada - extract.saida)}</p>
-            </div>
-          </div>
-          <button onClick={openModalAdd}>Adicionar Registro</button>
-        </div> */}
       </div>
 
     </div>
